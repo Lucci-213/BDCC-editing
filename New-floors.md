@@ -1,4 +1,186 @@
-# THIS INFORMATION IS OUTDATED SINCE `0.1.6` BUT YOU CAN STILL FOLLOW THROUGH
+# Overview
+
+I am assuming you have: 
+- Godot version 3.6
+- BDCC version 0.1.12fix4
+- Know how to make a Module
+
+Making a new floor has 4 steps:
+1. Make a root floor
+2. Add your first room
+3. Add more rooms
+4. Create an entrance/exit
+
+
+
+# Step 1 -- Make a root floor
+
+1.1 Create a scene
+
+![Step 1.1 - create a .tscn](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep1rootFloor01.png)
+
+1.2 Confirm scene properties
+
+![Step 1.2 - confirm .tscn properties](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep1rootFloor02.png)
+
+1.3 Add script to scene
+
+![Step 1.3 - add SubWorld script](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep1rootFloor03.png)
+
+1.4 Confirm script
+
+![Step 1.4 - confirm SubWorld script](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep1rootFloor04.png)
+
+
+
+# Step 2 -- Add your first room
+
+2.1 Add child scene
+
+![Step 2.1 - add child scene](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep2roomFirst01.png)
+
+2.2 Choose template
+
+![Step 2.2 - choose GameRoom template](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep2roomFirst02.png)
+
+2.3 Preview map and rename `Room ID`
+
+![Step 2.3 - preview map and confirm Room ID is unique](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep2roomFirst03.png)
+
+
+
+# Step 3 -- Add more rooms
+
+3.1 Copy first room
+
+![Step 3.1 - copy first room](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore01.png)
+
+3.2 Paste to root floor
+
+![Step 3.2 - paste first room in root floor](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore02.png)
+
+3.3 Check scene structure and rename `Room ID` to be unique
+
+![Step 3.3 - verify scene structure and rename Room ID to be unique](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore03.png)
+
+3.4 Move room to position
+
+![Step 3.4 - move room to position](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore04.png)
+
+3.5 Repeat Step 3 until you get the floor shape you want
+
+
+
+# Step 4 -- Create an entrance/exit
+
+4.1 Make a `Module` with 2 `Events`
+
+![Step 4.1 - module folder structure preview](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep4enterExit01.png)
+
+### Module.gd
+```gdscript
+extends Module
+
+func _init():
+	id = "NewFloor"
+	author = "Lucci-213"
+	
+	events = [
+		"res://Modules/NewFloor/Events/NewFloorEnter.gd",
+		"res://Modules/NewFloor/Events/NewFloorLeave.gd",
+	]
+```
+
+### NewFloorEnter.gd
+```gdscript
+extends EventBase
+
+func _init():
+	id = "newFloorEnter"
+
+func registerTriggers(es):
+	es.addTrigger(self, Trigger.EnteringRoom, "hall_elevator")	
+
+func run(_triggerID, _args):
+	addButton("New Floor Button", "Press the button", "enterNewFloor")
+
+func getPriority():
+	return 0
+
+func onButton(_method, _args):
+	if(_method == "enterNewFloor"):
+		GM.pc.setLocation("newFloor01")
+		GM.main.reRun()
+```
+
+### NewFloorExit.gd
+```gdscript
+extends EventBase
+
+func _init():
+	id = "newFloorExit"
+
+func registerTriggers(es):
+	es.addTrigger(self, Trigger.EnteringRoom, "newFloor01")	
+
+func run(_triggerID, _args):
+	addButton("Go back", "Return to the prison", "exitNewFloor")
+
+func getPriority():
+	return 0
+
+func onButton(_method, _args):
+	if(_method == "exitNewFloor"):
+		GM.pc.setLocation("hall_elevator")
+		GM.main.reRun()
+```
+
+# Final notes
+
+The floor/rooms you have created does nothing.
+It is a simply a space that can be explored in-game.
+Use `Events` and `Scenes` to populate the space. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# OLD
+
+# THIS INFORMATION IS OUTDATED SINCE 0.1.6 BUT YOU CAN STILL FOLLOW THROUGH
 
 # Floors Basics
 

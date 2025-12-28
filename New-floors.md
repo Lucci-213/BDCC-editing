@@ -67,8 +67,9 @@ Making a new floor has 4 steps:
 
 ![Step 3.4 - move room to position](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore04.png)
 
-3.5 Repeat Step 3 until you get the floor shape you want
+3.5 Repeat until you get the floor shape you want
 
+![Step 3.5 - Repeat](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore05.png)
 
 
 # Step 4 -- Create an entrance/exit

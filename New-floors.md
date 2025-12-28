@@ -15,19 +15,19 @@ Making a new floor has 4 steps:
 
 # Step 1 -- Make a root floor
 
-1.1 Create a scene
+### 1.1 Create a scene
 
 ![Step 1.1 - create a .tscn](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep1rootFloor01.png)
 
-1.2 Confirm scene properties
+### 1.2 Confirm scene properties
 
 ![Step 1.2 - confirm .tscn properties](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep1rootFloor02.png)
 
-1.3 Add script to scene
+### 1.3 Add script to scene
 
 ![Step 1.3 - add SubWorld script](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep1rootFloor03.png)
 
-1.4 Confirm script
+### 1.4 Confirm script
 
 ![Step 1.4 - confirm SubWorld script](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep1rootFloor04.png)
 
@@ -35,15 +35,15 @@ Making a new floor has 4 steps:
 
 # Step 2 -- Add your first room
 
-2.1 Add child scene
+### 2.1 Add child scene
 
 ![Step 2.1 - add child scene](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep2roomFirst01.png)
 
-2.2 Choose template
+### 2.2 Choose template
 
 ![Step 2.2 - choose GameRoom template](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep2roomFirst02.png)
 
-2.3 Preview map and rename `Room ID`
+### 2.3 Preview map and rename `Room ID`
 
 ![Step 2.3 - preview map and confirm Room ID is unique](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep2roomFirst03.png)
 
@@ -51,34 +51,34 @@ Making a new floor has 4 steps:
 
 # Step 3 -- Add more rooms
 
-3.1 Copy first room
+### 3.1 Copy first room
 
 ![Step 3.1 - copy first room](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore01.png)
 
-3.2 Paste to root floor
+### 3.2 Paste to root floor
 
 ![Step 3.2 - paste first room in root floor](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore02.png)
 
-3.3 Check scene structure and rename `Room ID` to be unique
+### 3.3 Check scene structure and rename `Room ID` to be unique
 
 ![Step 3.3 - verify scene structure and rename Room ID to be unique](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore03.png)
 
-3.4 Move room to position
+### 3.4 Move room to position
 
 ![Step 3.4 - move room to position](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore04.png)
 
-3.5 Repeat until you get the floor shape you want
+### 3.5 Repeat until you get the floor shape you want
 
 ![Step 3.5 - Repeat](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep3roomMore05.png)
 
 
 # Step 4 -- Create an entrance/exit
 
-4.1 Make a `Module` with 2 `Events`
+### 4.1 Make a `Module` with 2 `Events`
 
 ![Step 4.1 - module folder structure preview](https://github.com/Lucci-213/BDCC-editing/blob/master/images/floor/floorStep4enterExit01.png)
 
-### Module.gd
+`Module.gd`
 ```gdscript
 extends Module
 
@@ -92,7 +92,9 @@ func _init():
 	]
 ```
 
-### NewFloorEnter.gd
+### 4.2 Create an entrace
+
+`NewFloorEnter.gd`
 ```gdscript
 extends EventBase
 
@@ -114,7 +116,9 @@ func onButton(_method, _args):
 		GM.main.reRun()
 ```
 
-### NewFloorExit.gd
+### 4.3 Create an exit
+
+`NewFloorExit.gd`
 ```gdscript
 extends EventBase
 

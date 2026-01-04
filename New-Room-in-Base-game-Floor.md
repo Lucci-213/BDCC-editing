@@ -40,12 +40,19 @@ Suggested format is pictured, but do as you like
 ![Step 1.6 - attach script](https://github.com/Lucci-213/BDCC-editing/blob/master/images/new%20room%20tutorial/roomStep01duplicate08.png)
 
 `self_modulate` - I don't know what this does. Copied from Issix Mod.
+
 `position` - Coordiates of room, relative to floor. Will explain more later.
+
 `roomName` - Name of room as shown in in-game minimap.
+
 `roomID` - Used for referencing room in code. Has to be similar to roomID in Step 1.4
+
 `roomDescription` - Is displayed on the main text screen when inside the room during free-roam.
+
 `roomSprite` - If the room displays an icon on the in-game minimap.
+
 `canWest` and similar - If the room can be entered by walking from that direction. Imagine if a wall exists in that direction.
+
 `roomColor` - Color of tile as shown in the in-game minimap.
 
 # Step 2 -- Reposition room
@@ -100,4 +107,4 @@ IMPORTANT - the room will not appear unless this script is registered in `Module
 
 Done!
 
-![Step 3.4 - preview](https://github.com/Lucci-213/BDCC-editing/blob/master/images/new%20room%20tutorial/roomStep03register05.png)
+![Step 3.4 - preview](https://github.com/Lucci-213/BDCC-editing/blob/master/images/new%20room%20tutorial/roomStep03register06.png)
